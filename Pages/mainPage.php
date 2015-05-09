@@ -21,16 +21,18 @@ $pageImage = $pageData["image"];
 echo "<body>";
 
 //Display Login Tab
-echo "<div id='accessTab' class='login'>";
+
 //echo "Alexander Goldberg";
+echo "<div id='accessTab' class='accessTab'>";
 accessTab();
 echo "</div>";
 
+
 //Display navigation
-echo "<nav id='navigation' class='navigation'>";
+echo "<div id='navigation' class='navigation'>";
 getPage($connection,$_SESSION["priv"]);
 
-echo "</nav>"; //navigation
+echo "</div>"; //navigation
 
 /*echo "<div id='mainImage' class='mainImage'>";
 

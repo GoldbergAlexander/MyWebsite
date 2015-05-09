@@ -6,7 +6,9 @@ require_once "/home/ubuntu/workspace/Pages/getContent.php";  //Contains getConte
 require_once "/home/ubuntu/workspace/Pages/getPage.php";     //Contains getPage($connection,$priv = 0)
 require_once "/home/ubuntu/workspace/Pages/getPageInfo.php"; //Contains a function which returns array getPageInfo($connection,$url,$priv = 0) 
                                                              //array("pageName" => $pageName, "tag" => $tag);      
+                                                        
 require_once "/home/ubuntu/workspace/Pages/accessTab.php";   //accessTab();
+require_once "/home/ubuntu/workspace/Pages/head.php";
 //Figure out what page I am
 
 $pageUrl = filter_var(trim($_GET["page"]),FILTER_SANITIZE_FULL_SPECIAL_CHARS);

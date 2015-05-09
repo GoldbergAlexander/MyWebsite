@@ -8,7 +8,7 @@ require_once "/home/ubuntu/workspace/Pages/getPageInfo.php"; //Contains a functi
                                                              //array("pageName" => $pageName, "tag" => $tag); 
 require_once "/home/ubuntu/workspace/Pages/getExactContent.php";//getExactContent($connection,$pageUrl,$_SESSION["priv"]);
 require_once "/home/ubuntu/workspace/Pages/accessTab.php";   //accessTab();
-                                                        
+require_once "/home/ubuntu/workspace/Pages/head.php";                                                        
 $pageUrl = $_GET["page"]; //get the page variable/link
 
 echo "<body>";

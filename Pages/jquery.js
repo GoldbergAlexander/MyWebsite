@@ -1,5 +1,5 @@
-$(document).ready(function(){
-    $(".login").on("keyup", "#accessText",function(e){
+$(document).on("keyup","#accessText",function(e){
+   // $(".login").on("keyup", "#accessText",function(e){
         if(e.which == 13){
             $.post("login.php",{
                 code:$("#accessText").val()
@@ -10,11 +10,11 @@ $(document).ready(function(){
                 $("#exactContent").load("ajaxGetExactContent.php?page="+ $.urlParam('page'));
             });
         }
-    });
+   // });
 });
 
-$(document).ready(function(){
-   $(".login").on("click","#name",function(){
+$(document).on("click","#name",function(){
+  // $(".login").on("click","#name",function(){
        $.post("login.php",{
            logout:"logout"
        }, function() {
@@ -23,7 +23,7 @@ $(document).ready(function(){
           $("#content").load("ajaxContent.php?page="+ $.urlParam('page'));
           $("#exactContent").load("ajaxGetExactContent.php?page="+ $.urlParam('page'));
        });
-   });
+ //  });
 });
 
 $.urlParam = function(name){

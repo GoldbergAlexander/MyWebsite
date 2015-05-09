@@ -11,7 +11,6 @@ if(isset($_POST['code'])){
 $code = filter_var(trim($_POST['code']),FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $code = filter_var($code, FILTER_SANITIZE_STRING);
 $code = strtoupper($code);
-error_log("Login Code: " . $code . "\n", 3, "~/php_errors.log");
 
 try{
 $statement = $connection->prepare("SELECT * FROM `Authorized` WHERE `AccessCode` = ?");

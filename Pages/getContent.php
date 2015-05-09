@@ -1,6 +1,6 @@
 <?php
 ini_set('display_errors', 'On');
-require "/home/ubuntu/workspace/Pages/connectDB.php";
+require_once "/home/ubuntu/workspace/Pages/connectDB.php";
 //Function for getting page content, takes a variable set of arguments,Database link, Tag for content, and optionaly privilidge level and length of text to display.
 function getContent($connection,$tag,$priv,$length = 1000){
 try{

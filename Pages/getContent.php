@@ -1,5 +1,6 @@
 <?php
 ini_set('display_errors', 'On');
+ini_set('file_uploads', 'On');
 require_once "/home/ubuntu/workspace/Pages/connectDB.php";
 //Function for getting page content, takes a variable set of arguments,Database link, Tag for content, and optionaly privilidge level and length of text to display.
 function getContent($connection,$tag,$priv,$length = 1000){
@@ -19,8 +20,8 @@ while($statement->fetch()){
    
    if($display == 1){
 
-   $filePath = "/home/ubuntu/workspace/Content/" . $url . "/" . $url . ".txt";
-   $imagePath = "/Content/" . $url . "/Images/" . "primary.jpg";
+   $filePath = "/home/ubuntu/workspace/Content/" . $url . "/main.txt";
+   $imagePath = "/Content/" . $url . "/Images/main.jpg";
    
    $file = fopen($filePath, "r");
     
@@ -42,11 +43,12 @@ while($statement->fetch()){
    echo "</div>"; //contentImage
    
    echo "<div class='contentText'>";
-   echo $content . "...   ";
+   echo $content;
    
    if($length < filesize($filePath)){ // If there is more to display
    
         echo "<span class='contentLink'>";
+        echo "...   ";
         echo "<a href=/Pages/contentPage.php?page=" . $url . ">Read More </a>";
         echo "</span>";
    

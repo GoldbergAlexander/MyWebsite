@@ -24,8 +24,8 @@ while($statement->fetch()){
    if($display == 1){
 
     
-   $filePath = "/home/ubuntu/workspace/Content/" . $url . "/" . $url . ".txt";
-   $imagePath = "/Content/" . $url . "/Images/" . "primary.jpg";
+   $filePath = "/home/ubuntu/workspace/Content/" . $url . "/main.txt";
+   $imagePath = "/Content/" . $url . "/Images/" . "main.jpg";
    
    $file = fopen($filePath, "r");
     

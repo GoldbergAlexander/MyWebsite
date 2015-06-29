@@ -33,15 +33,9 @@ echo "</div>";
 //Display navigation
 echo "<div id='navigation' class='navigation'>";
 getPage($connection,$_SESSION["priv"]);
-
 echo "</div>"; //navigation
 
-/*echo "<div id='mainImage' class='mainImage'>";
-
-echo "<img src='../PageImages/" . $pageImage . "'>";
-
-echo "</div>"; //mainImage
-*/
+//Title
 echo "<div id='title' class='title'>";
 echo $pageName;
 echo "</div>"; //title

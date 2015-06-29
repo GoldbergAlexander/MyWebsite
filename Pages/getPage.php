@@ -10,7 +10,7 @@ $statement->bind_param("i", $priv);
 
 $statement->execute();
 
-$statement->bind_result($id,$pageName,$url,$image,$priv, $tag);
+$statement->bind_result($id,$pageName,$url,$priv, $tag);
 
 while($statement->fetch()){
     

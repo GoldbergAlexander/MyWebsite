@@ -11,11 +11,11 @@ $statement->bind_param("si",$url,$priv);
 
 $statement->execute();
 
-$statement->bind_result($id,$pageName,$url,$image,$priv, $tag);
+$statement->bind_result($id,$pageName,$url,$priv, $tag);
 
 $statement->fetch();
 
-return array("pageName" => $pageName, "tag" => $tag,"image" => $image);
+return array("pageName" => $pageName, "tag" => $tag);
 
 
 }catch(PDOException $e){
@@ -35,11 +35,11 @@ $statement->bind_param("si",$url,$priv);
 
 $statement->execute();
 
-$statement->bind_result($id,$pageName,$url,$image,$priv, $tag);
+$statement->bind_result($id,$pageName,$url,$priv, $tag);
 
 $statement->fetch();
 
-return array("url" => $url, "tag" => $tag,"image" => $image);
+return array("url" => $url, "tag" => $tag);
 
 
 }catch(PDOException $e){

@@ -80,6 +80,42 @@
 				echo "</form>";
 				echo "</div>";
 			}
+			
+			//New File option
+			
+			echo "<div class='links'>";
+				echo "<p>New Content Node</p>";
+ 				echo"</div>";
+ 				
+ 				/*
+ 				echo "<div class='files'>";
+
+ 				echo "<form action='adminContentChangeFile.php' method='post' enctype='multipart/form-data'>";
+    			echo "<input type='file' name='imageFile' id='imageFile'>";
+    			echo "<input type='hidden' name='id' value='$id'>";
+    			echo "<input type='submit' value='Upload Image' name='submit'>";
+				echo "</form>";
+				
+				echo "<form action='adminContentChangeFile.php' method='post' enctype='multipart/form-data'>";
+    			echo "<input type='file' name='textFile' id='textFile'>";
+    			echo "<input type='hidden' name='id' value='$id'>";
+    			echo "<input type='submit' value='Upload Text' name='submit'>";
+				echo "</form>";
+ 				*/
+ 				echo "</div>";
+ 				
+ 				echo "<div class='details'>";
+				echo "<form action='adminNewContent.php' method='POST'>";
+				echo "contentname:<input type='text' name='contentname' >";
+				echo "URL:<input type='text' name='url' >";
+				echo "TAG:<input type='text' name='tag' >";
+				echo "PostDate:<input type='text' name='postdate' >";
+				echo "Display:<input type='display' name='display' >";
+				echo "Priv:<input type='text' name='priv' >";
+				echo "Owner:<input type='text' name='owner' >";
+				echo "<input type='submit' value='New'>";
+				echo "</form>";
+				echo "</div>";
 
 		}
 

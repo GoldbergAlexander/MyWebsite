@@ -1,27 +1,29 @@
 <?php
-header("Location:adminPane.php");
+//header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require_once "/home/ubuntu/workspace/Pages/connectDB.php";//Opens required DB link
-foreach($_POST as $value){
-    $value = filter_var(trim($value),FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $value = filter_var($value, FILTER_SANITIZE_STRING);
+
+function myFilter($value){
+$value=filter_var(trim($value),FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$value=filter_var($value, FILTER_SANITIZE_STRING);
+return $value;
 }
 
-$id = $_POST["id"];
-$contentname = $_POST["contentname"];
-$url = $_POST["url"];
-$tag = $_POST["tag"];
-$postdate = $_POST["postdate"];
-$display = $_POST["display"];
-//$type = $_POST["type"];
-$priv = $_POST["priv"];
-$owner = $_POST["owner"];
+
+
+$id = myFilter($_POST["id"]);
+$contentname = myFilter($_POST["contentname"]);
+$url = myFilter($_POST["url"]);
+$tag = myFilter($_POST["tag"]);
+$postdate = myFilter($_POST["postdate"]);
+$display = myFilter($_POST["display"]);
+//$type = myFilter($_POST["type"]);
+$priv =myFilter($_POST["priv"]);
+$owner = myFilter($_POST["priv"]);
 try{
-$statement = $connection->prepare("UPDATE `Content` SET `CONTENTNAME`='$contentname',`URL`='$url', `TAG`='$tag', `POSTDATE`='$postdate',`DISPLAY`='$display',`PRIVILEGE`='$priv',`OWNER`='$owner'  WHERE `idContent`='$id'");
-
-
+$statement = $connection->prepare("UPDATE `Content` SET `CONTENTNAME`=?,`URL`=?, `TAG`=?, `POSTDATE`=?,`DISPLAY`=?,`PRIVILEGE`=?,`OWNER`=?  WHERE `idContent`=?");
+$statement->bind_param('ssssiisi',$contentname,$url,$tag,$postdate,$display,$priv,$owner,$id);
 $statement->execute();
-
 }
 catch(PDOException $e){
 			echo "Error: " . $e->getMessage();

@@ -1,6 +1,5 @@
 <?php
 
-ini_set('display_errors', 'On');
 require_once "/home/ubuntu/workspace/Pages/connectDB.php";   //Opens required DB link
 require_once "/home/ubuntu/workspace/Pages/getContent.php";  //Contains getContent($connection,$tag,$priv = 0 ,$length = 1000)
 require_once "/home/ubuntu/workspace/Pages/getPage.php";     //Contains getPage($connection,$priv = 0)

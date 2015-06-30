@@ -1,0 +1,27 @@
+<?php
+header("Location:adminPane.php");
+require_once "/home/ubuntu/workspace/Pages/head.php";
+require_once "/home/ubuntu/workspace/Pages/connectDB.php"; //Opens required DB link
+echo "Entered file";
+function myFilter($value)
+{
+    $value = filter_var(trim($value), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+    $value = filter_var($value, FILTER_SANITIZE_STRING);
+    return $value;
+}
+
+    echo "entered if";
+    $id = myFilter($_POST["id"]);
+    echo "Clean id is $id";
+    try {
+        $statement = $connection->prepare("DELETE FROM `Content` WHERE `idContent` = ?");
+        $statement->bind_param('i', $id);
+        $statement->execute();
+    }   
+    catch (PDOException $e) {
+        echo "Error: " . $e->getMessage();
+    }
+
+    echo "records UPDATED successfully";
+
+?>

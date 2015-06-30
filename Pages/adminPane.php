@@ -15,20 +15,38 @@
 			$statement->execute();
 			$statement->bind_result($id,$pageName,$url,$priv, $tag);
 			while($statement->fetch()){
+				echo "<div class='pageNode'>";
 				echo "<div class='links'>";
 				echo "<a href='/Pages/mainPage.php?page=" . $url . "'>" . $pageName . "</a>";
 				echo "</div>";
 				echo "<div class='details'>";
 				echo "<form action='adminChangePage.php' method='POST'>";
-				echo "ID:<input type='text' name='id' value='$id'>";
+				echo "ID:<input type='hidden' name='id' value='$id'>";
 				echo "pageName:<input type='text' name='pageName' value='$pageName'>";
-				echo "URL:<input type='text' name='url' value='$url'>";
 				echo "Priv:<input type='text' name='priv' value='$priv'>";
 				echo "Tag:<input type='text' name='tag' value='$tag'>";
 				echo "<input type='submit' value='submit'>";
 				echo "</form>";
 				echo "</div>";
+				
+				echo "<div class='remove'>";
+				echo "<form action='adminPageDelete.php' method='POST'>";
+				echo "<input type='hidden' name='id' value='$id'>";
+				echo "<input type='submit' value='remove'>";
+				echo "</form>";
+				echo "</div>";
 			}
+			
+				echo "<div class='pageNode'>";
+				echo "<div class='details'>";
+				echo "<form action='adminNewPage.php' method='POST'>";
+				echo "pageName:<input type='text' name='pageName' value='$pageName'>";
+				echo "Priv:<input type='text' name='priv' value='$priv'>";
+				echo "Tag:<input type='text' name='tag' value='$tag'>";
+				echo "<input type='submit' value='new'>";
+				echo "</form>";
+				echo "</div>";
+				echo "</div>";
 
 		}
 
@@ -45,10 +63,11 @@
 			$statement->execute();
 			$statement->bind_result($id,$contentname,$url,$tag ,$postdate, $display, $priv, $type,$owner);
 			while($statement->fetch()){
+				echo "<div class='contentNode'";
+				
 				echo "<div class='links'>";
 				echo "<a href=/Pages/contentPage.php?page=" . $url . ">" . $contentname . "</a>";
  				echo"</div>";
- 				
  				
  				echo "<div class='files'>";
 
@@ -68,22 +87,32 @@
  				
  				echo "<div class='details'>";
 				echo "<form action='adminChangeContent.php' method='POST'>";
-				echo "ID:<input type='text' name='id' value='$id'>";
+				echo "<input type='hidden' name='id' value='$id'>";
 				echo "contentname:<input type='text' name='contentname' value='$contentname'>";
-				echo "URL:<input type='text' name='url' value='$url'>";
+				//echo "URL:<input type='text' name='url' value='$url'>";
 				echo "TAG:<input type='text' name='tag' value='$tag'>";
-				echo "PostDate:<input type='text' name='postdate' value='$postdate'>";
+				echo "PostDate:<input type='datetime' name='postdate' value='$postdate'>";
 				echo "Display:<input type='display' name='display' value='$display'>";
 				echo "Priv:<input type='text' name='priv' value='$priv'>";
 				echo "Owner:<input type='text' name='owner' value='$owner'>";
 				echo "<input type='submit' value='submit'>";
 				echo "</form>";
 				echo "</div>";
+				
+				echo "<div class='remove'>";
+				echo "<form action='adminContentDelete.php' method='POST'>";
+				echo "<input type='hidden' name='id' value='$id'>";
+				echo "<input type='submit' value='remove'>";
+				echo "</form>";
+				echo "</div>";
+				
+				echo "</div>";
+				
 			}
 			
 			//New File option
-			
-			echo "<div class='links'>";
+			echo "<div class='contentNode'";
+				echo "<div class='links'>";
 				echo "<p>New Content Node</p>";
  				echo"</div>";
  				
@@ -107,7 +136,7 @@
  				echo "<div class='details'>";
 				echo "<form action='adminNewContent.php' method='POST'>";
 				echo "contentname:<input type='text' name='contentname' >";
-				echo "URL:<input type='text' name='url' >";
+				//echo "URL:<input type='text' name='url' >";
 				echo "TAG:<input type='text' name='tag' >";
 				echo "PostDate:<input type='text' name='postdate' >";
 				echo "Display:<input type='display' name='display' >";
@@ -116,6 +145,8 @@
 				echo "<input type='submit' value='New'>";
 				echo "</form>";
 				echo "</div>";
+				
+			echo "</div>";
 
 		}
 

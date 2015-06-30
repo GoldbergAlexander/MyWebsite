@@ -2,21 +2,23 @@
 header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require_once "/home/ubuntu/workspace/Pages/connectDB.php";//Opens required DB link
-foreach($_POST as $value){
-    $value = filter_var(trim($value),FILTER_SANITIZE_FULL_SPECIAL_CHARS);
-    $value = filter_var($value, FILTER_SANITIZE_STRING);
+function myFilter($value){
+$value=filter_var(trim($value),FILTER_SANITIZE_FULL_SPECIAL_CHARS);
+$value=filter_var($value, FILTER_SANITIZE_STRING);
+return $value;
 }
-$id=  $_POST["id"];
-$pageName=  $_POST["pageName"];
-$url=  $_POST["url"];
-$priv = $_POST["priv"];
-$tag =  $_POST["tag"];
+
+$id=  myFilter($_POST["id"]);
+$pageName=  myFilter($_POST["pageName"]);
+$url= strtolower($pageName);
+$url= str_replace(' ', '', $url);
+$priv = myFilter($_POST["priv"]);
+$tag =  myFilter($_POST["tag"]);
 
 
 try{
-$statement = $connection->prepare("UPDATE `Pages` SET `PAGENAME`='$pageName',`URL`='$url', `PAGEPRIVILEGE`='$priv', `TAG`='$tag' WHERE `idPages`='$id'");
-
-
+$statement = $connection->prepare("UPDATE `Pages` SET `PAGENAME`=?,`URL`=?, `PAGEPRIVILEGE`=?, `TAG`=? WHERE `idPages`=?");
+$statement->bind_param('ssisi',$pageName,$url,$priv,$tag,$id);
 $statement->execute();
 
 }

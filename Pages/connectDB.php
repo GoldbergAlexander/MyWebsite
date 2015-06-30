@@ -1,7 +1,5 @@
 <?php
 //This file contains methods to establish connections with the working database//
-ini_set('display_errors', 'On');
-
 $array = file("../login.txt");
 
 $servername =   trim($array[0]);

@@ -13,7 +13,7 @@ function myFilter($value)
 
 $id          = myFilter($_POST["id"]);
 $contentname = myFilter($_POST["contentname"]);
-$url         = myFilter($_POST["url"]);
+$url         = "Asset" . $id;
 $tag         = myFilter($_POST["tag"]);
 $postdate    = myFilter($_POST["postdate"]);
 $display     = myFilter($_POST["display"]);

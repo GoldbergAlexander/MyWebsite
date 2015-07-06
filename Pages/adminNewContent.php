@@ -2,29 +2,7 @@
 header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require "/home/ubuntu/workspace/Pages/connectDB.php";//Opens required DB link
-function myCopy($source, $target) {
-        if (!is_dir($source)) {//it is a file, do a normal copy
-            copy($source, $target);
-            return;
-        }
-
-        //it is a folder, copy its files & sub-folders
-        @mkdir($target);
-        $d = dir($source);
-        $navFolders = array('.', '..');
-        while (false !== ($fileEntry=$d->read() )) {//copy one by one
-            //skip if it is navigation folder . or ..
-            if (in_array($fileEntry, $navFolders) ) {
-                continue;
-            }
-
-            //do copy
-            $s = "$source/$fileEntry";
-            $t = "$target/$fileEntry";
-            myCopy($s, $t);
-        }
-        $d->close();
-    }
+require "/home/ubuntu/workspace/Pages/myCopy.php";
 $statement = $connection->prepare("SELECT `idContent` FROM `Content` ORDER BY `idContent` DESC LIMIT 1");
 $statement->execute();
 $statement->bind_result($id);
@@ -34,6 +12,10 @@ function myFilter($value){
 $value=filter_var(trim($value),FILTER_SANITIZE_FULL_SPECIAL_CHARS);
 $value=filter_var($value, FILTER_SANITIZE_STRING);
 return $value;
+}
+
+if($id == null){
+    $id = 1;
 }
 
 $id = $id + 1;

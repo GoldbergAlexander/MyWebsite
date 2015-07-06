@@ -49,7 +49,7 @@ while($statement->fetch()){
    echo $content;
    echo "</div>"; //contentText
    
-   if( file_exists ("/Content/" . $url . "/Project/")){
+   if( file_exists ("../Content/" . $url . "/Project/")){
    echo "<div class='files'>";
    echo "<a href='/Content/" . $url . "/Project/'>Project Files</a>";
    echo "</div>";

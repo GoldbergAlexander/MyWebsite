@@ -1,5 +1,5 @@
 <?php
-//header("Location:adminPane.php");
+header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require "/home/ubuntu/workspace/Pages/connectDB.php";//Opens required DB link
 try{

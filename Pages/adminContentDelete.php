@@ -1,6 +1,7 @@
 <?php
 header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
+require_once "/home/ubuntu/workspace/Pages/myDelete.php";
 require_once "/home/ubuntu/workspace/Pages/connectDB.php"; //Opens required DB link
 function myFilter($value)
 {
@@ -9,9 +10,12 @@ function myFilter($value)
     return $value;
 }
 
-    echo "entered if";
+
+
+
+
     $id = myFilter($_POST["id"]);
-    echo "Clean id is $id";
+    myDelete("/home/ubuntu/workspace/Content/Asset" . $id);
     try {
         $statement = $connection->prepare("DELETE FROM `Content` WHERE `idContent` = ?");
         $statement->bind_param('i', $id);

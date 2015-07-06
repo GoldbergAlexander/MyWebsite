@@ -20,7 +20,7 @@ while($statement->fetch()){
    if($display == 1){
 
    $filePath = "/home/ubuntu/workspace/Content/" . $url . "/main.txt";
-   $imagePath = "/Content/" . $url . "/Images/main.jpg";
+   $imagePath = "Content/" . $url . "/Images/main.jpg";
    
    $file = fopen($filePath, "r");
     
@@ -40,7 +40,7 @@ while($statement->fetch()){
    echo "</div>"; //contentHeader
    
    echo "<div class='contentImage'>";
-   echo "<img src=" . $imagePath . ">";
+   echo "<img src=" . "'image.php?image=../$imagePath'" . ">";
    echo "</div>"; //contentImage
    
    echo "<div class='contentText'>";

@@ -12,7 +12,7 @@ $pageUrl = $_GET["page"]; //get the page variable/link
 
 echo "<body>";
 //Display Login Tab
-echo "<div id='accessTab' class='login'>";
+echo "<div id='accessTab' class='accessTab'>";
 accessTab();
 echo "</div>";
 
@@ -21,7 +21,7 @@ echo "<div id='navigation' class='navigation'>";
 getPage($connection,$_SESSION["priv"]);
 echo "</div>"; //navigation
 
-echo "<div id='exactContent' class='contentExact'>";
+echo "<div id='exactContent' class='exactContent'>";
 getExactContent($connection,$pageUrl,$_SESSION["priv"]);
 echo "</div>"; //content
 

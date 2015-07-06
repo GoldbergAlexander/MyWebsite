@@ -33,7 +33,7 @@ while($statement->fetch()){
    
    echo "<div class='contentExactItem'>";
    
-   echo "<div 'class='contentExactTitle'>";
+   echo "<div class='contentExactTitle'>";
    echo $contentname;
    echo "</div>"; //contentTitle
    
@@ -48,6 +48,12 @@ while($statement->fetch()){
    echo "<div class='contentExactText'>";
    echo $content;
    echo "</div>"; //contentText
+   
+   if( file_exists ("/Content/" . $url . "/Project/")){
+   echo "<div class='files'>";
+   echo "<a href='/Content/" . $url . "/Project/'>Project Files</a>";
+   echo "</div>";
+   }
    
    echo "<div class='contentExactDate'>";
    echo $postdate;

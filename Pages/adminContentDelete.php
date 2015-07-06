@@ -2,7 +2,6 @@
 header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require_once "/home/ubuntu/workspace/Pages/connectDB.php"; //Opens required DB link
-echo "Entered file";
 function myFilter($value)
 {
     $value = filter_var(trim($value), FILTER_SANITIZE_FULL_SPECIAL_CHARS);

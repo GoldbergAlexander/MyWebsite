@@ -4,7 +4,7 @@ require_once "/home/ubuntu/workspace/Pages/connectDB.php";
 //Function for getting page content, takes a variable set of arguments,Database link, Tag for content, and optionaly privilidge level and length of text to display.
 function getContent($connection,$tag,$priv,$length = 1000){
 try{
-$statement = $connection->prepare("SELECT * FROM `Content` WHERE `TAG` = ? AND `PRIVILEGE` <= ? ORDER BY 'POSTDATE' DESC");
+$statement = $connection->prepare("SELECT * FROM `Content` WHERE `TAG` = ? AND `PRIVILEGE` <= ? ORDER BY `POSTDATE` DESC");
 
 $statement->bind_param("si", $tag,$priv);
 
@@ -29,13 +29,15 @@ while($statement->fetch()){
    
    echo "<div class='contentItem'>";
    
+   echo "<div class='contentHeader'>";
    echo "<div class='contentTitle'>";
-   echo $contentname;
+   echo "<a href=/Pages/contentPage.php?page=" . $url . ">$contentname</a>";
    echo "</div>"; //contentTitle
    
    echo "<div class='contentOwner'>";
    echo $owner;
    echo "</div>"; //contentTitle
+   echo "</div>"; //contentHeader
    
    echo "<div class='contentImage'>";
    echo "<img src=" . $imagePath . ">";

@@ -1,8 +1,11 @@
-$(document).on("keyup","#accessText",function(e){
+$(document).ready(function(){
+
+
+$(document).on("keyup",".accessInput",function(e){
    // $(".login").on("keyup", "#accessText",function(e){
         if(e.which == 13){
             $.post("login.php",{
-                code:$("#accessText").val()
+                code:$(".accessInput").val()
             },function(){
                 $("#accessTab").load("ajaxAccessTab.php");
                 $("#navigation").load("ajaxPage.php");
@@ -13,7 +16,7 @@ $(document).on("keyup","#accessText",function(e){
    // });
 });
 
-$(document).on("click","#name",function(){
+$(document).on("click",".accessLogout",function(){
   // $(".login").on("click","#name",function(){
        $.post("login.php",{
            logout:"logout"
@@ -24,6 +27,8 @@ $(document).on("click","#name",function(){
           $("#exactContent").load("ajaxGetExactContent.php?page="+ $.urlParam('page'));
        });
  //  });
+});
+
 });
 
 $.urlParam = function(name){

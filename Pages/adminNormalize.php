@@ -4,6 +4,8 @@ require_once "/home/ubuntu/workspace/Pages/connectDB.php"; //Opens required DB l
 require_once "/home/ubuntu/workspace/Pages/myCopy.php";
 require_once "/home/ubuntu/workspace/Pages/myDelete.php";
 $baseDir = "/home/ubuntu/workspace/Content/";
+
+	if($_SESSION["priv"] >= 1){
 try {
     $statement = $connection->prepare("UPDATE `Content` SET `idContent`=?,`URL`=?  WHERE `URL`=?");
     //$statement->bind_param('iss', $id, $url, $url);
@@ -41,5 +43,5 @@ for($i = 3; $i < sizeof($arrayOfAssets); $i++){
 
 $statement->close();
 
-
+}
 ?>

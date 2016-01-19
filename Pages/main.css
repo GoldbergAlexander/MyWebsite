@@ -35,11 +35,11 @@ a:active {
 
 /*Access */
 .accessTab {
-    border: .5px solid black;
+    border: 1px solid black;
+    border-right:0px;
     padding: 5px;
     margin: -10px;
     margin-bottom: 0px;
-    border-radius: 2px;
     min-width: 100;
     height: 20px;
 }
@@ -50,13 +50,15 @@ a:active {
 }
 
 .accessInput {
-    border: .5px solid black;
+    border: 1px solid black;
+    -webkit-border-radius: 2px;
     border-radius: 2px;
     font-family:Verdana, Geneva, sans-serif;
 }
 
 .accessLogout{
-    border: .5px solid black;
+    border: 1px solid black;
+    -webkit-border-radius: 2px;
     border-radius: 2px;
     font-family:Verdana, Geneva, sans-serif;
     background-color:white;
@@ -75,11 +77,12 @@ a:active {
     margin-left:3px;
     margin-right:3px;
     display:inline-block; 
+    border-bottom:1px solid white;
 }
 
 .links:hover {
     background-color:lightgrey;
-    border-bottom:.5px solid black;
+    border-bottom:1px solid black;
 }
 
 .links a {
@@ -125,7 +128,8 @@ a:active {
 .contentImage {
     width:690px;
     height:400px;
-    border:.5px solid black;
+    border:1px solid black;
+    -webkit-border-radius: 2px;
     border-radius:2px; 
     overflow: hidden;
     margin:auto;
@@ -170,7 +174,7 @@ a:active {
 .contentExactImage{
     width:690px;
     height:400px;
-    border:.5px solid black;
+    border:1px solid black;
     border-radius:2px; 
     overflow: hidden;
     margin:auto;
@@ -188,4 +192,37 @@ a:active {
     margin-left:5px;
     font-size:12px;
      color:grey;
+}
+
+/* Admin CSS*/
+.adminPages {
+    width:700px;
+    margin:auto;
+}
+.pageNode{
+    height:70px;
+    margin:5px;
+    padding:5px;
+    border:1px solid black;
+    border-radius:2px;
+}
+.pageNode input {
+    border:1px solid black;
+    border-radius:2px;
+}
+
+.adminContent{
+    width:700px;
+    margin:auto;
+}
+
+.contentNode{
+    margin:5px;
+    padding:5px;
+    border:1px solid black;
+    border-radius:2px;
+}
+.contentNode input {
+    border:1px solid black;
+    border-radius:2px;
 }

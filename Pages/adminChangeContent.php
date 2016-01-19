@@ -2,7 +2,7 @@
 header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require_once "/home/ubuntu/workspace/Pages/connectDB.php"; //Opens required DB link
-
+	if($_SESSION["priv"] >= 1){
 function myFilter($value)
 {
     $value = filter_var(trim($value), FILTER_SANITIZE_FULL_SPECIAL_CHARS);
@@ -32,6 +32,6 @@ catch (PDOException $e) {
 echo "records UPDATED successfully";
 $statement->close();
 
-
+}
 
 ?>

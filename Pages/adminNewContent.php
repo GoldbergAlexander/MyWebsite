@@ -3,6 +3,8 @@ header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require "/home/ubuntu/workspace/Pages/connectDB.php";//Opens required DB link
 require "/home/ubuntu/workspace/Pages/myCopy.php";
+
+	if($_SESSION["priv"] >= 1){
 $statement = $connection->prepare("SELECT `idContent` FROM `Content` ORDER BY `idContent` DESC LIMIT 1");
 $statement->execute();
 $statement->bind_result($id);
@@ -48,5 +50,5 @@ echo "records UPDATED successfully";
 $statement->close();
 
 
-
+}
 ?>

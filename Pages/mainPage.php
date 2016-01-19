@@ -18,7 +18,6 @@ $pageData = getPageInfo($connection,$pageUrl,$_SESSION["priv"]);
 
 $pageName = $pageData["pageName"]; //Title of Page
 $pageTag = $pageData["tag"]; //What content we should show
-$pageImage = $pageData["image"];
 echo "<body>";
 
 //Display Login Tab

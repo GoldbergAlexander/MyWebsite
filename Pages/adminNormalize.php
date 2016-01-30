@@ -5,7 +5,7 @@ require_once "/home/ubuntu/workspace/Pages/myCopy.php";
 require_once "/home/ubuntu/workspace/Pages/myDelete.php";
 $baseDir = "/home/ubuntu/workspace/Content/";
 
-	if($_SESSION["priv"] >= 1){
+	if($_SESSION["priv"] >= 99){
 try {
     $statement = $connection->prepare("UPDATE `Content` SET `idContent`=?,`URL`=?  WHERE `URL`=?");
     //$statement->bind_param('iss', $id, $url, $url);

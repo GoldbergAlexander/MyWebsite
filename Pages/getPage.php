@@ -20,6 +20,12 @@ while($statement->fetch()){
     
 }
 
+//Display Admin Pane if allowed
+if($_SESSION["priv"] >= 99){
+ echo "<div class='links'>";
+ echo "<a href='/Pages/adminPane.php'>Admin</a>";
+ echo"</div>";
+ }
 }catch(PDOException $e){
     echo "Error: " . $e->getMessage();
 }

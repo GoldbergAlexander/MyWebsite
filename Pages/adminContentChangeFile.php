@@ -2,7 +2,7 @@
 header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require_once "/home/ubuntu/workspace/Pages/connectDB.php";//Opens required DB link
-	if($_SESSION["priv"] >= 1){
+	if($_SESSION["priv"] >= 99){
 if(isset($_POST["submit"])) {
     
     

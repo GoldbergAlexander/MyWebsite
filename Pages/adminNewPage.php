@@ -3,7 +3,7 @@ header("Location:adminPane.php");
 require_once "/home/ubuntu/workspace/Pages/head.php";
 require "/home/ubuntu/workspace/Pages/connectDB.php";//Opens required DB link
 
-	if($_SESSION["priv"] >= 1){
+	if($_SESSION["priv"] >= 99){
 try{
 $statement = $connection->prepare("SELECT `idPages` FROM `Pages` ORDER BY `idPages` DESC LIMIT 1");
 $statement->execute();

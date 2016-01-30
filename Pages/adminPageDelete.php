@@ -8,7 +8,7 @@ function myFilter($value)
     $value = filter_var($value, FILTER_SANITIZE_STRING);
     return $value;
 }
-	if($_SESSION["priv"] >= 1){
+	if($_SESSION["priv"] >= 99){
     $id = myFilter($_POST["id"]);
     try {
         $statement = $connection->prepare("DELETE FROM `Pages` WHERE `idPages` = ?");

@@ -44,7 +44,13 @@ while($statement->fetch()){
    echo "</div>"; //contentImage
    
    echo "<div class='contentText'>";
-   echo $content;
+  
+   $pos = strpos($content, "<div class='git' id='git'>");
+   if($pos != false){
+        echo substr($content, 0, $pos);
+   }else{
+        echo $content;
+   }
    
    if($length < filesize($filePath)){ // If there is more to display
    
@@ -54,6 +60,8 @@ while($statement->fetch()){
         echo "</span>";
    
    }
+   
+   
    echo "</div>"; //contentText
    
   

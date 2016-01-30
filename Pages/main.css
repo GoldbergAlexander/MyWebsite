@@ -200,7 +200,6 @@ a:active {
     margin:auto;
 }
 .pageNode{
-    height:70px;
     margin:5px;
     padding:5px;
     border:1px solid black;
@@ -225,4 +224,27 @@ a:active {
 .contentNode input {
     border:1px solid black;
     border-radius:2px;
+}
+.adminAccess {
+    width:700px;
+    margin:auto;
+}
+.authorizedNode {
+    margin:5px;
+    padding:5px;
+    border:1px solid black;
+    border-radius:2px;
+}
+
+.authorizedNode span {
+    min-width: 130px;
+    padding:0 5px;
+    display: inline-block;
+}
+
+.git {
+    margin-top:5px;
+    margin-bottom:5px;
+    border-top:1px solid black;
+    border-bottom:1px solid black;
 }
